@@ -16,5 +16,6 @@ public interface ParentManagementRespostory extends JpaRepository<ParentManageme
 
 	ParentManagement findByEmail(String email);
 
-//	List<ParentManagement> findByParentManagement_SchoolId(Long schoolId);
+
+    List<ParentManagement> findBySchoolManagement_SchoolId(Long schoolId);
 }

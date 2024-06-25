@@ -121,7 +121,7 @@ public class ParentManagementService implements ParentManagementRespostoryImpl{
 
 	@Override
 	public List<ParentManagement> getParentManagementBySchoolId(Long schoolId) {
-		List<ParentManagement> parentManagements = parentManagementRespostory.findByParentManagement_SchoolId(schoolId);
+		List<ParentManagement> parentManagements = parentManagementRespostory.findBySchoolManagement_SchoolId(schoolId);
 		return parentManagements;
 	}
 
