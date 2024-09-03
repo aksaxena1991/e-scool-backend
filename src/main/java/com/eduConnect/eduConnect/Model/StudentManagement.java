@@ -50,6 +50,10 @@ public class StudentManagement {
 	@JsonIgnore
 	private List<ParentManagement> parent;
 
+	@OneToMany(mappedBy = "studentManagement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<AttendanceManagement> attendance;
+	
 	public Long getStudentId() {
 		return studentId;
 	}
@@ -114,4 +118,12 @@ public class StudentManagement {
 		this.parent = parent;
 	}
 
+	public List<AttendanceManagement> getAttendance() {
+		return attendance;
+	}
+
+	public void setAttendance(List<AttendanceManagement> attendance) {
+		this.attendance = attendance;
+	}
+	
 }

@@ -8,6 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,7 @@ import com.eduConnect.eduConnect.Repositroy.TeacherManagementRepositroy;
 import com.eduConnect.eduConnect.Repositroy.UsersManageRepositroy;
 import com.eduConnect.eduConnect.RespositroyImpl.UsersManageRespositroyImpl;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/user")
 public class UsersManageController {
@@ -176,6 +178,11 @@ public class UsersManageController {
 	                .body(new ResponseMessageDto("error", "Invalid email or password", "Unauthorized", new Date()));
 	    }
 
+//	    if (!usersManagement.getLoginStatus()) {
+//	        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+//	                .body(new ResponseMessageDto("error", "You are not authorized to log in", "Forbidden", new Date()));
+//	    }
+	    
 	    // Check if email exists in the respective tables and get details
 	    TeacherManagement teacher = teacherManagementRepositroy.findByEmail(email);
 	    StudentManagement student = studentManagementRespositroy.findByEmail(email);

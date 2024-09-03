@@ -22,7 +22,7 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
                 .requestMatchers("/api/v1/paypal/**", "/favicon.ico").permitAll()
-                .requestMatchers("/api/v1/user/**", "/api/v1/products/**", "/api/v1/license/**","/api/v1/desktop/**", "/api/v1/devicereboot/**", "/api/v1/extraproducts/**","/api/v1/**","/api/v1/paymentreport/**","/api/v1/product-license/**").authenticated()
+                .requestMatchers("/api/v1/user/**", "/api/v1/products/**", "/api/v1/license/**","/api/v1/desktop/**", "/api/v1/devicereboot/**", "/api/v1/extraproducts/**","/api/v1/**","/api/v1/paymentreport/**","/api/v1/classes/**","/api/v1/city-state/**").authenticated()
                 .anyRequest().authenticated())
             .httpBasic(Customizer.withDefaults())
             .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer

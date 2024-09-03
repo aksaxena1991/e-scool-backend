@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import com.eduConnect.eduConnect.Model.VendorAddCategoryItemManagement;
 import com.eduConnect.eduConnect.Repositroy.VendorAddCategoryItemManagementRepository;
 import com.eduConnect.eduConnect.RespositroyImpl.VendorAddCategoryItemManagementRepositoryImpl;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/vendor-category-item")
 public class VendorAddCategoryItemManagementController {

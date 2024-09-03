@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +19,7 @@ import com.eduConnect.eduConnect.Dto.CombinedTeacherManagementDto;
 import com.eduConnect.eduConnect.Dto.ResponseMessageDto;
 import com.eduConnect.eduConnect.Service.CombinedManagementService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
 public class CombinedManagementController {

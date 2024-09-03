@@ -51,7 +51,19 @@ public class SchoolManagement {
     @OneToMany(mappedBy = "schoolManagement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<ParentManagement> parent;
+    
+    @OneToMany(mappedBy = "schoolManagement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<AttendanceManagement> attendance;
+    
+    @OneToMany(mappedBy = "schoolManagement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<ClassesManagement> classes;
 
+    @OneToMany(mappedBy = "schoolManagement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<SubjectManagement> subject;
+    
 	public Long getSchoolId() {
 		return schoolId;
 	}
@@ -122,5 +134,29 @@ public class SchoolManagement {
 
 	public void setParent(List<ParentManagement> parent) {
 		this.parent = parent;
+	}
+
+	public List<AttendanceManagement> getAttendance() {
+		return attendance;
+	}
+
+	public void setAttendance(List<AttendanceManagement> attendance) {
+		this.attendance = attendance;
+	}
+
+	public List<ClassesManagement> getClasses() {
+		return classes;
+	}
+
+	public void setClasses(List<ClassesManagement> classes) {
+		this.classes = classes;
+	}
+
+	public List<SubjectManagement> getSubject() {
+		return subject;
+	}
+
+	public void setSubject(List<SubjectManagement> subject) {
+		this.subject = subject;
 	}
 }

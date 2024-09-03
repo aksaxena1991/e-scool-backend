@@ -1,12 +1,20 @@
 package com.eduConnect.eduConnect.Model;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,6 +33,14 @@ public class ClassesManagement {
 
 	@Column(name = "class_section")
 	private String classSection;
+	
+	@ManyToOne(fetch = FetchType.EAGER) // Eager loading
+	@JoinColumn(name = "schoolId")
+	private SchoolManagement schoolManagement;
+	
+//	@OneToMany(mappedBy = "classManagement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JsonIgnore
+//	private List<AttendanceManagement> attendance;
 
 	public Long getClassId() {
 		return classId;
@@ -57,4 +73,21 @@ public class ClassesManagement {
 	public void setClassSection(String classSection) {
 		this.classSection = classSection;
 	}
+
+	public SchoolManagement getSchoolManagement() {
+		return schoolManagement;
+	}
+
+	public void setSchoolManagement(SchoolManagement schoolManagement) {
+		this.schoolManagement = schoolManagement;
+	}
+
+//	public List<AttendanceManagement> getAttendance() {
+//		return attendance;
+//	}
+//
+//	public void setAttendance(List<AttendanceManagement> attendance) {
+//		this.attendance = attendance;
+//	}
+	
 }
