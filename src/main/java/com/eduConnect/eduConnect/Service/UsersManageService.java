@@ -15,7 +15,7 @@ import com.eduConnect.eduConnect.Repositroy.UsersManageRepositroy;
 import com.eduConnect.eduConnect.RespositroyImpl.UsersManageRespositroyImpl;
 
 @Service
-public class UsersManageService implements UsersManageRespositroyImpl {
+public class 	UsersManageService implements UsersManageRespositroyImpl {
 
 	@Autowired
 	private UsersManageRepositroy usersManageRepositroy;
@@ -79,8 +79,9 @@ public class UsersManageService implements UsersManageRespositroyImpl {
 	}
 
 	@Override
-	public void deleteUsersManageById(Long userId) {
+	public boolean deleteUsersManageById(Long userId) {
 		this.usersManageRepositroy.deleteById(userId);
+		return false;
 	}
 
 }

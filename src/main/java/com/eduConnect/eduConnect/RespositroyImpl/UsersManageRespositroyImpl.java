@@ -13,7 +13,7 @@ public interface UsersManageRespositroyImpl {
 
 	UsersManagement getUsersManageById(Long userId);
 
-	void deleteUsersManageById(Long userId);
+	boolean deleteUsersManageById(Long userId);
 
 	UsersManagement updatedUserManagement(UsersManagement updatedUser, Long userId) throws Exception;
 }

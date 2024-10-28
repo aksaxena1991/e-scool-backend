@@ -39,9 +39,10 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
-                        .requestMatchers("/api/v1/paypal/**", "/favicon.ico", "/api/v1/user/**", "/v2/api-docs", "/swagger-resources/**", "/swagger-ui/**", "/swagger-ui.html", "/swagger-ui.html#/").permitAll() // Allow access without authentication
+                        .requestMatchers("/api/v1/paypal/**", "/favicon.ico", "/api/v1/user/**", "/api/v1/admin/login", "/api/v1/admin/delete/{userId}", "/api/v1/admin/**", "/v2/api-docs", "/swagger-resources/**", "/swagger-ui/**", "/swagger-ui.html", "/swagger-ui.html#/").permitAll() // Allow access without authentication
                         .requestMatchers(HttpMethod.PATCH, "/api/v1/user/update/{userId}").permitAll() // Allow PATCH requests without authentication
-                        .requestMatchers( "/api/v1/user/**","/api/v1/products/**", "/api/v1/license/**","/api/v1/desktop/**", "/api/v1/devicereboot/**", "/api/v1/extraproducts/**","/api/v1/**","/api/v1/paymentreport/**","/api/v1/classes/**","/api/v1/city-state/**").authenticated() // Require authentication for these endpoints
+                        .requestMatchers(HttpMethod.DELETE, "/api/v1/admin/delete/{userId}").permitAll()
+                        .requestMatchers( "/api/v1/user/**", "/api/v1/admin/login", "/api/v1/admin/**","/api/v1/products/**", "/api/v1/admin/delete/{userId}", "/api/v1/license/**","/api/v1/desktop/**", "/api/v1/devicereboot/**", "/api/v1/extraproducts/**","/api/v1/**","/api/v1/paymentreport/**","/api/v1/classes/**","/api/v1/city-state/**").authenticated() // Require authentication for these endpoints
                         .anyRequest().authenticated()) // All other requests require authentication
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(httpSecuritySessionManagementConfigurer ->

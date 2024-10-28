@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class AuthenticationFilter extends GenericFilterBean {
 
     private static final List<String> AUTH_WHITELIST = Arrays.asList(
-        "/api/v1/**", "/api/v1/user/**", "/api/v1/user/details","/api/v1/user/reg","/api/v1/paypal/create-payment","/api/v1/paypal/cancel-payment","/api/v1/paypal/execute-payment","/favicon.ico", "/v2/api-docs", "/swagger-resources/**", "/swagger-ui/**", "/swagger-ui.html","/swagger-ui.html#/"
+        "/api/v1/**", "/api/v1/admin/**", "/api/v1/admin/details", "/api/v1/user/**", "/api/v1/user/details", "/api/v1/admin/delete/{userId}", "/api/v1/admin/login","/api/v1/user/reg","/api/v1/paypal/create-payment","/api/v1/paypal/cancel-payment","/api/v1/paypal/execute-payment","/favicon.ico", "/v2/api-docs", "/swagger-resources/**", "/swagger-ui/**", "/swagger-ui.html","/swagger-ui.html#/"
     );
 
     @Override
